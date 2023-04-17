@@ -1,15 +1,18 @@
 import React from "react";
+import "../Styles/Card.css";
 
 const Card = (props) => {
   return (
     <>
       <div className={`outter-card ${props.bgColor}`}>
         <div className={`inner-card ${props.fgColor}`}>
-          <h3>{props.title}</h3>
-          <p>Amount</p>
-          <p>Description</p>
+          <h2>{props.title}</h2>
+          <div className="amount-desc">
+            <p>Amount</p>
+            <p>Description</p>
+          </div>
         </div>
-        No {props.title} Yet!
+        <p>No {props.title} Yet!</p>
       </div>
     </>
   );
