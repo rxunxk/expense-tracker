@@ -13,7 +13,7 @@ const ExpenseList = (props) => {
           return (
             <div className="expense-item-container">
               <p style={{ fontWeight: "bold" }}>₹ {expense.amount}</p>
-              <p>{expense.desc}</p>
+              <p>{expense.description}</p>
             </div>
           );
         }
@@ -22,7 +22,7 @@ const ExpenseList = (props) => {
           return (
             <div className="expense-item-container">
               <p style={{ fontWeight: "bold" }}>₹ {expense.amount}</p>
-              <p>{expense.desc}</p>
+              <p>{expense.description}</p>
             </div>
           );
         }

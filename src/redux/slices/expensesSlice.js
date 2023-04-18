@@ -3,8 +3,8 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 export const expensesSlice = createSlice({
   name: "expenses",
   initialState: [
-    { amount: 100, desc: "book" },
-    { amount: -20, desc: "chips" },
+    { amount: 100, description: "book" },
+    { amount: -20, description: "chips" },
   ],
   reducers: {
     addExpense: (state, action) => state.push(action.payload),
