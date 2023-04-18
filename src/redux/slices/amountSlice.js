@@ -5,7 +5,7 @@ const amountSlice = createSlice({
   initialState: 0,
   reducers: {
     addAmount: (state, action) => state + action.payload,
-    withdarwAmount: (state, action) => state + action.payload,
+    resetAmount: (state, action) => 0,
   },
 });
 
@@ -14,6 +14,6 @@ export const getAmountSelector = createSelector(
   (state) => state
 );
 
-export const { addAmount, withdarwAmount } = amountSlice.actions;
+export const { addAmount, resetAmount } = amountSlice.actions;
 
 export default amountSlice.reducer;

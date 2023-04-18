@@ -12,6 +12,7 @@ const expensesSlice = createSlice({
       state.pop(action.payload);
       return state;
     },
+    resetExpense: (state, action) => [],
   },
 });
 
@@ -20,6 +21,7 @@ export const getExpensesSelector = createSelector(
   (state) => state
 );
 
-export const { addExpense, removeExpense } = expensesSlice.actions;
+export const { addExpense, removeExpense, resetExpense } =
+  expensesSlice.actions;
 
 export default expensesSlice.reducer;

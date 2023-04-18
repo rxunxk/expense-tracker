@@ -2,10 +2,15 @@ import React from "react";
 import "../Styles/Calculator.css";
 import Card from "./Card";
 import Form from "./Form";
+import { useDispatch } from "react-redux";
+import { resetAmount } from "../redux/slices/amountSlice";
+import { resetExpense } from "../redux/slices/expensesSlice";
 
 const Calculator = () => {
+  const dispatch = useDispatch();
   const clearHandler = () => {
-    console.log("clear clicked");
+    dispatch(resetAmount());
+    dispatch(resetExpense());
   };
 
   return (
