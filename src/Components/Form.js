@@ -34,9 +34,8 @@ const Form = () => {
     e.preventDefault();
 
     if (isValid) {
-      //{ amount: amt, description: desc }
       dispatch(addExpense({ amount: amt, description: desc }));
-      //dispatch(addAmount(50));
+      dispatch(addAmount(parseInt(amt)));
     }
     setAmount("0");
     setAmtClicked(true);
