@@ -9,8 +9,8 @@ const Card = (props) => {
         <div className={`inner-card ${props.fgColor}`}>
           <h2>{props.title}</h2>
           <div className="amount-desc">
-            <p>Amount</p>
-            <p>Description</p>
+            <p className="card-amount">Amount</p>
+            <p className="card-desc">Description</p>
           </div>
         </div>
         <ExpenseList title={props.title} />

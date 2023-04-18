@@ -12,8 +12,8 @@ const ExpenseList = (props) => {
         if (expense.amount > 0) {
           return (
             <div className="expense-item-container">
-              <p style={{ fontWeight: "bold" }}>₹ {expense.amount}</p>
-              <p>{expense.description}</p>
+              <p className="expense-amount">₹ {expense.amount}</p>
+              <p className="expense-desc">{expense.description}</p>
             </div>
           );
         }
@@ -21,8 +21,8 @@ const ExpenseList = (props) => {
         if (expense.amount < 0) {
           return (
             <div className="expense-item-container">
-              <p style={{ fontWeight: "bold" }}>₹ {expense.amount}</p>
-              <p>{expense.description}</p>
+              <p className="expense-amount">₹ {expense.amount}</p>
+              <p className="expense-desc">{expense.description}</p>
             </div>
           );
         }
