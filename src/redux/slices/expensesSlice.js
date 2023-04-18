@@ -1,14 +1,17 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 
-export const expensesSlice = createSlice({
+const expensesSlice = createSlice({
   name: "expenses",
-  initialState: [
-    { amount: 100, description: "book" },
-    { amount: -20, description: "chips" },
-  ],
+  initialState: [],
   reducers: {
-    addExpense: (state, action) => state.push(action.payload),
-    removeExpense: (state, action) => state.pop(action.payload),
+    addExpense: (state, action) => {
+      state.push(action.payload);
+      return state;
+    },
+    removeExpense: (state, action) => {
+      state.pop(action.payload);
+      return state;
+    },
   },
 });
 

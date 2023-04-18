@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../Styles/Form.css";
 import { useDispatch } from "react-redux";
-import addExpense from "../redux/slices/expensesSlice";
+import { addExpense, removeExpense } from "../redux/slices/expensesSlice";
+import { addAmount } from "../redux/slices/amountSlice";
 
 const Form = () => {
   const [amt, setAmount] = useState("0");
@@ -21,12 +22,6 @@ const Form = () => {
     return true;
   };
 
-  // const keyHandler = (e) => {
-  //   if (e.keyCode === 13) {
-  //     isValid();
-  //   }
-  // };
-
   const amountInputHandler = (e) => {
     setAmount(e.target.value);
   };
@@ -39,7 +34,9 @@ const Form = () => {
     e.preventDefault();
 
     if (isValid) {
+      //{ amount: amt, description: desc }
       dispatch(addExpense({ amount: amt, description: desc }));
+      //dispatch(addAmount(50));
     }
     setAmount("0");
     setAmtClicked(true);
