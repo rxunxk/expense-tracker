@@ -7,30 +7,6 @@
   align-items: center;
 }
 
-.form {
-  display: flex;
-}
-.form input {
-  outline: none;
-  border: 1px solid grey;
-  padding: 8px 10px;
-  width: 200px;
-  margin: 5px;
-  border-radius: 6px;
-  font-size: 1rem;
-  color: gray;
-}
-
-.add-btn {
-  width: 200px;
-  margin: 5px;
-  border-radius: 6px;
-  background-color: #16a34a;
-  border: none;
-  color: white;
-  font-size: 1rem;
-}
-
 .expense-cards {
   display: flex;
 }

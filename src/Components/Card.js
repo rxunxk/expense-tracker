@@ -1,5 +1,6 @@
 import React from "react";
 import "../Styles/Card.css";
+import ExpenseList from "./ExpenseList";
 
 const Card = (props) => {
   return (
@@ -12,7 +13,7 @@ const Card = (props) => {
             <p>Description</p>
           </div>
         </div>
-        <p>No {props.title} Yet!</p>
+        <ExpenseList title={props.title} />
       </div>
     </>
   );
