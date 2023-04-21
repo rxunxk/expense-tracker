@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Styles/Form.css";
 import { useDispatch } from "react-redux";
-import { addExpense, removeExpense } from "../redux/slices/expensesSlice";
+import { addExpense } from "../redux/slices/expensesSlice";
 import { addAmount } from "../redux/slices/amountSlice";
 
 const Form = () => {
@@ -11,14 +11,19 @@ const Form = () => {
   const [isDescClicked, setDescClicked] = useState(false);
   const dispatch = useDispatch();
 
+  const randomId = Math.floor(Math.random() * 1000) + 1;
+
   const isValid = () => {
-    if (desc === "") {
+    if (desc === "" || desc === "Enter Description") {
+      console.log("invalid desc");
       alert("Description cannot be empty!");
       return false;
-    } else if (amt === "") {
+    } else if (amt === "" || amt === 0) {
       alert("Amount cannot be empty!");
+      console.log("invalid amt");
       return false;
     }
+    console.log("imma pretend I didnt see anything");
     return true;
   };
 
@@ -34,7 +39,7 @@ const Form = () => {
     e.preventDefault();
 
     if (isValid) {
-      dispatch(addExpense({ amount: amt, description: desc }));
+      dispatch(addExpense({ amount: amt, description: desc, id: randomId }));
       dispatch(addAmount(parseInt(amt)));
     }
     setAmount("0");

@@ -9,7 +9,8 @@ const expensesSlice = createSlice({
       return state;
     },
     removeExpense: (state, action) => {
-      state.pop(action.payload);
+      state = state.filter((expense) => expense.id !== action.payload);
+      console.log(state);
       return state;
     },
     resetExpense: (state, action) => [],
