@@ -3,29 +3,24 @@ import "../Styles/Form.css";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../redux/slices/expensesSlice";
 import { addAmount } from "../redux/slices/amountSlice";
+import { TextField } from "@mui/material";
+import Button from "@mui/material/Button";
 
 const Form = () => {
-  const [amt, setAmount] = useState("0");
-  const [desc, setDesc] = useState("Enter Description");
-  const [isAmtClicked, setAmtClicked] = useState(false);
-  const [isDescClicked, setDescClicked] = useState(false);
+  const [amt, setAmount] = useState("");
+  const [desc, setDesc] = useState("");
   const dispatch = useDispatch();
 
   const randomId = Math.floor(Math.random() * 1000) + 1;
 
-  const isValid = () => {
-    if (desc === "" || desc === "Enter Description") {
-      console.log("invalid desc");
-      alert("Description cannot be empty!");
-      return false;
-    } else if (amt === "" || amt === 0) {
-      alert("Amount cannot be empty!");
-      console.log("invalid amt");
+  function errorCheck() {
+    if (amt === "" || desc === "") {
+      alert("Amount OR Description cannot be empty!");
+      return true;
+    } else {
       return false;
     }
-    console.log("imma pretend I didnt see anything");
-    return true;
-  };
+  }
 
   const amountInputHandler = (e) => {
     setAmount(e.target.value);
@@ -35,46 +30,62 @@ const Form = () => {
     setDesc(e.target.value);
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    if (isValid) {
+  const addHandler = (e) => {
+    if (!errorCheck()) {
       dispatch(addExpense({ amount: amt, description: desc, id: randomId }));
       dispatch(addAmount(parseInt(amt)));
+      setAmount("");
+      setDesc("");
     }
-    setAmount("0");
-    setAmtClicked(true);
-    setDesc("Enter Desciption");
-    setDescClicked(true);
   };
 
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <form>
         <div className="form">
-          <input
+          <TextField
+            className="amt-input input"
+            id="outlined-number"
+            label="Amount"
             type="number"
+            size="small"
             value={amt}
-            onClick={() => {
-              if (!isAmtClicked) {
-                setAmount("");
-                setAmtClicked(true);
-              }
+            sx={{
+              marginRight: "10px",
+              marginBottom: "10px",
+              width: "250px",
             }}
             onChange={amountInputHandler}
           />
-          <input
-            type="text"
+          <TextField
+            id="outlined-basic"
+            label="Enter Description"
+            variant="outlined"
+            className="desc-input input"
+            size="small"
             value={desc}
-            onClick={() => {
-              if (!isDescClicked) {
-                setDesc("");
-                setDescClicked(true);
-              }
+            sx={{
+              marginRight: "10px",
+              marginBottom: "10px",
+              width: "250px",
             }}
             onChange={descInputHandler}
           />
-          <button className="add-btn">Add</button>
+          <Button
+            variant="contained"
+            sx={{
+              marginRight: "10px",
+              marginBottom: "10px",
+              backgroundColor: "#16a34a",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "#159d47",
+              },
+            }}
+            onClick={addHandler}
+          >
+            Add
+          </Button>
         </div>
       </form>
     </>

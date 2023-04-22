@@ -7,6 +7,7 @@
   border-radius: 5px;
   min-height: 200px;
   min-width: 450px;
+  max-width: 600px;
 }
 
 .inner-card {
@@ -46,4 +47,11 @@
 
 .dr {
   background-color: #dc2626;
+}
+
+@media (max-width: 450px) {
+  .outter-card {
+    min-width: 300px;
+    max-width: 380px;
+  }
 }

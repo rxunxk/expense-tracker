@@ -10,7 +10,6 @@ const expensesSlice = createSlice({
     },
     removeExpense: (state, action) => {
       state = state.filter((expense) => expense.id !== action.payload);
-      console.log(state);
       return state;
     },
     resetExpense: (state, action) => [],
